@@ -1,0 +1,201 @@
+@CHARSET "UTF-8";
+.top{
+	
+}
+
+.content{
+	padding:30px 30px;
+	height: 600px;	
+}
+
+.foot{
+}
+
+.form1{
+	text-align: center;
+}
+.tinfo{
+	margin: 0px auto;
+}
+.tdtitle{
+	width: 100px;
+	height: 30px;
+	text-align: right;
+	padding: 0px 10px;
+}
+.tdinput{
+	height: 35px;
+}
+.tdtipmsg{
+	height: 25px;
+}
+.tdinput input{
+	height: 100%;
+	width: 300px
+}
+.tdchackcodeinput input{
+	width: 100px;
+	height: 35px;
+}
+.tdchackcode{
+	height: 35px;
+	width: 200px;
+}
+.tdchackcode img{
+	height: 35px;
+	width: 100px;
+	
+}
+.tdblank{
+	width: 500px;
+}
+.submitbtn{
+	height: 35px;
+}
+.submitbtn input{
+	height: 100%;
+	width: 250px;
+	background-color:#808080;
+	border-radius: 20px;
+	font-size: 20px;
+}
+
+
+.top_table {
+	background-color: #e5eaef;
+	height: 30px;
+	text-align: center;
+}
+
+.top_table a{
+	
+}
+
+.top_table a:LINK {
+	padding: 5px 10px;
+	border-right: 1px dotted #e5eadf;
+	margin-left: 1px;
+	
+}
+
+.top_table a:VISITED{
+	
+}
+
+.top_table a:HOVER{
+	text-decoration: none;
+	background-color: #c0c0c0;
+	
+}
+
+.top_table .price_style{
+	width: 50px;
+	height: 18px;
+	padding: 1px 3px;
+	
+}
+
+.top_category_div{
+	border: 1px solid grey;
+}
+
+.line1{
+	padding: 20px 20px;
+	/* border-bottom: 1px solid grey; */
+	/* position: relative; */
+}
+.line1 img{
+	float: left;
+}
+
+.detail{
+	height: 14px;	
+}
+.price{
+	
+}
+
+
+.search_discount {
+}
+
+.search_now_price {
+	font-size: 20px;
+	color: red;
+}
+.search_pre_price {
+	text-decoration: line-through;
+}
+
+.search_discount{
+	
+}
+
+.shop_button a:LINK{
+	color: white;
+	
+}
+
+.shop_button a:VISITED{
+	
+	
+}
+
+.shop_button a:HOVER{
+	
+	
+}
+.shop_button {
+	margin-top: 5px;
+}
+
+
+.search_btn_cart {
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	background: #ff2832;
+	border-radius: 3px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	color: #fff;
+	text-align: center;
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	margin-right: 10px;
+}
+.search_btn_collect {
+	width: 80px;
+	height: 28px;
+	line-height: 28px;
+	background: #ffedee;
+	color: #ff2832;
+	border: 1px solid #ff2832;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	border-radius: 3px;
+	text-align: center;
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.category_span {
+	padding: 2px 8px;
+	background-color: #ededed;
+	display: inline-block;
+}
+
+.category_span_title{
+	font-weight: bold;
+}
+
+.change_page_span {
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: #aaa;
+	font-weight: bold;
+	cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.Order" table="t_order">
+		<id name="order_id" column="order_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+		private Long order_id;
+	
+	private Long user_id;
+	
+	private String time;
+	
+	private String statu;
+	
+	private String momo;
+	private String pay_way;
+	
+		private String username;
+	
+		private String uu_code;
+	//总金额
+	private Number sum_money;
+	//总商品数
+	private Number product_count;
+	
+	
+	private String address;
+	private String name;
+	private String phone;
+		private String order_no;
+	
+	
+	//该订单包含书籍
+	private Set<Order_Item> items = new HashSet<Order_Item>();
+			 -->
+		 <property name="order_no" length="50"></property>
+		<property name="user_id"></property>
+		<property name="username" length="20"></property>
+		<property name="time" ></property>
+		<property name="momo" ></property>
+		<property name="pay_way" ></property>
+		<property name="sum_money" ></property>
+		<property name="product_count" length="10"></property>
+		<property name="name" length="20"></property>
+		<property name="address" length="200"></property>
+		<property name="phone" length="20"></property>
+		<property name="statu" length="1"></property>
+		<property name="statu0" length="1"></property>
+		<property name="uu_code" length="100"></property>
+		<set name="items" >
+		<key column="order_item_order_id"></key>
+				<one-to-many  class="com.le.ebook.domain.Order_item" />
+		</set>
+	
+	
+		
+	</class>
+</hibernate-mapping>

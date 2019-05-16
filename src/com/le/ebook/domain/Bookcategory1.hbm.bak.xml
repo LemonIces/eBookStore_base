@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.Bookcategory1" table="t_bookcategory1">
+		<id name="bookcategory1_id" column="bookcategory1_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+	private Long bookcategory1_id;
+	
+	private String name;
+	
+	private String memo;
+	
+	private String statu;
+	
+	private Set<Bookcategory2> bookcategory2s = new HashSet<Bookcategory2>();
+
+			 -->
+		<property name="name" column="name"></property>
+		<property name="memo" column="memo"></property>
+		<property name="statu" column="statu"></property>
+		
+		<set name="bookcategory2s">
+			<key column="bookcategory1_bookcategory2_id"></key>
+			<one-to-many class="com.le.ebook.domain.Bookcategory2" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

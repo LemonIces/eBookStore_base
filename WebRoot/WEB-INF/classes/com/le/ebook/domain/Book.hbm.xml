@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.Book" table="t_book">
+		<id name="book_id" column="book_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="book_name" column="book_name"></property>
+		<property name="author" column="author"></property>
+		<property name="publishing" column="publishing"></property>
+		<property name="publish_time" column="publish_time"></property>
+		<property name="word_count" column="word_count"></property>
+		<property name="total_page" column="total_page"></property>
+		<property name="memo" column="memo"></property>
+		<property name="statu" column="statu"></property>
+		<property name="price" column="price"></property>
+		<property name="count"></property>
+		<property name="discount"></property>
+		<property name="img" column="img"></property>
+		<property name="news"></property>
+		<property name="hots"></property>
+		<property name="add_time"></property>
+		
+		<many-to-one name="bookcategory1" class="com.le.ebook.domain.Bookcategory1" column="book_bookcategory1_id"></many-to-one>
+		
+		
+	</class>
+</hibernate-mapping>

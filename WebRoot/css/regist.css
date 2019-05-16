@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+.top{
+	height: 100px;	
+}
+
+.content{
+	padding:30px 30px;
+	height: 600px;	
+}
+
+.foot{
+	height: 100px;
+}
+
+.form1{
+	text-align: center;
+}
+.tinfo{
+	margin: 0px auto;
+}
+.tdtitle{
+	width: 100px;
+	height: 30px;
+	text-align: right;
+	padding: 0px 10px;
+}
+.tdinput{
+	height: 35px;
+}
+.tdtipmsg{
+	height: 25px;
+}
+.tdinput input{
+	height: 100%;
+	width: 300px
+}
+.tdchackcodeinput input{
+	width: 100px;
+	height: 35px;
+}
+.tdchackcode{
+	height: 35px;
+	width: 200px;
+}
+.tdchackcode img{
+	height: 35px;
+	width: 100px;
+	
+}
+.tdblank{
+	width: 500px;
+}
+.submitbtn{
+	height: 35px;
+}
+.submitbtn input{
+	height: 100%;
+	width: 250px;
+	background-color:#808080;
+	border-radius: 20px;
+	font-size: 20px;
+}

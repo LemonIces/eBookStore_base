@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
+
+
+	<!-- 读取db.properties文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- 配置c3p0连接池 -->
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" ></property>
+		<property name="driverClass" value="${jdbc.driverClass}" ></property>
+		<property name="user" value="${jdbc.user}" ></property>
+		<property name="password" value="${jdbc.password}" ></property>
+	</bean>
+
+
+<!-- 第一种配置spring与Action整合 （不推荐使用）-->
+<!-- <bean name="userAction" class="com.le.ebook.action.UserAction"></bean> -->
+
+
+<!-- 第二种配置（推荐使用） -->
+<bean name="userAction" class="com.le.ebook.action.UserAction">
+	<property name="userService" ref="userService"></property>
+	<property name="bookService" ref="bookService"></property>
+</bean>
+
+<!-- spring整合hibernate  配置sessionFactory-->
+<!-- 第一種加載配置方案（不推荐） -->
+<!-- <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+</bean> -->
+
+<!-- 方案二 (推荐使用)-->
+<bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<!-- 配置hibernate的配置属性 -->
+	
+	<property name="dataSource" ref="dataSource"></property>
+	<property name="hibernateProperties">
+		<props>
+		<!-- 五个必选属性 -->
+			<!-- <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+			<prop key="hibernate.connection.url">jdbc:mysql:///db_ebookstore</prop>
+			<prop key="hibernate.connection.username">root</prop>
+			<prop key="hibernate.connection.password"></prop> -->
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+		<!-- 三个可选属性 -->
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.format_sql">true</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+		</props>
+	</property>
+	
+	<!-- 引入orm元数据,指定orm元数据所在的包路径,spring会自动读取包中的所有配置 -->
+	<property name="mappingDirectoryLocations" value="classpath:com/le/ebook/domain"></property>
+</bean>
+
+
+	<!-- 核心事务管理器 -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" >
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	
+	<!-- 配置通知 -->
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager" >
+		<tx:attributes>
+			<tx:method name="save*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="add*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="persist*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="modify*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="delete*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="remove*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="get*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice> -->
+	<!-- 配置将通知织入目标对象
+	配置切点
+	配置切面 -->
+	<!-- <aop:config>
+		<aop:pointcut expression="execution(* cn.itcast.service.impl.*ServiceImpl.*(..))" id="txPc"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPc" />
+	</aop:config> -->
+	<!-- ========================================================================================= -->
+	<!-- 开启注解事务 -->
+<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+<bean name="baseDao" class="com.le.ebook.dao.impl.BaseDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+
+<bean name="userService" class="com.le.ebook.service.impl.UserServiceImpl">
+	<property name="userDao" ref="userDao"></property>
+</bean>
+<bean name="userDao" class="com.le.ebook.dao.impl.UserDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+
+
+
+<!-- Book -->
+<bean name="bookService" class="com.le.ebook.service.impl.BookServiceImpl">
+	<property name="bookDao" ref="bookDao"></property>
+</bean>
+<bean name="bookDao" class="com.le.ebook.dao.impl.BookDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<!-- bookAction -->
+<bean name="bookAction" class="com.le.ebook.action.BookAction">
+	<property name="bookService" ref="bookService"></property>
+</bean>
+
+
+
+
+<!-- MallCar -->
+<bean name="mallCarService" class="com.le.ebook.service.impl.MallCarServiceImpl">
+	<property name="mallCarDao" ref="mallCarDao"></property>
+</bean>
+<bean name="mallCarDao" class="com.le.ebook.dao.impl.MallCarDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<!-- bookAction -->
+<bean name="mallCarAction" class="com.le.ebook.action.MallCarAction">
+	<property name="mallCarService" ref="mallCarService"></property>
+	<property name="userService" ref="userService"></property>
+</bean>
+
+
+
+<!-- admin -->
+<bean name="adminDao" class="com.le.ebook.dao.impl.AdminDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<bean name="adminService" class="com.le.ebook.service.impl.AdminServiceImpl">
+	<property name="adminDao" ref="adminDao"></property>
+</bean>
+
+<bean name="adminAction" class="com.le.ebook.action.AdminAction">
+	<property name="adminService" ref="adminService"></property>
+	<property name="bookService" ref="bookService"></property>
+	<property name="userService" ref="userService"></property>
+</bean>
+
+
+
+</beans>

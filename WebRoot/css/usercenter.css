@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+.user_center_main_left {
+	margin-left:10px;
+	margin-top:10px;
+	min-height: 550px;
+	width: 220px;
+	float: left;
+	background-color: #f9f9f9;
+}
+.user_center_main_right {
+	width: 750px;
+	float: left;
+	padding: 10px;
+	min-height:500px;
+	
+}
+
+.div_main_info{
+	border: 1px double #a3afb9;
+	padding: 5px;
+}
+
+.div_main_in_center{
+	min-height:500px;
+	border: 1px double #cbd7e1;
+	padding: 5px;
+	background-color: #f9f9f9;
+}
+.list_title{
+	float: left;
+}
+
+.list_edit{
+	float: left;
+}
+
+.mesage_list{
+	float: left;
+}
+
+.photo_prev{
+		float: left;
+}
+
+.browse_mypic{
+	float: left;
+}
+
+.photo_prev_head{
+	
+}
+
+.upload_head{
+	
+}
+
+.archives_title{
+	font-size: 13px;
+	color: grey;
+}
+
+.gray666{
+	color: grey;
+}
+
+.f12{
+	font-size: 12px;
+}
+
+
+
+.left_title1 {
+	/* padding: 5px; */
+	text-align: center;
+	border: 1px solid #dddde6;
+	background-color: #e5e5e6;
+	margin: 5px 0px;
+	padding: 10px 5px;
+}
+
+
+
+.edit_message {
+	padding: 25px;
+}
+
+
+.list_title {
+	width: 106px;
+	text-align: right;
+	padding-top: 5px;
+	float: left;
+}
+
+.list_edit .add_textarea_gray {
+	color: #a6a6a6;
+}
+.save_mess {
+	width: 90px;
+	height: 22px;
+	font-size: 12px;
+	padding-top: 1px;
+	margin-left: 110px;
+	cursor: pointer;
+	float: left;
+}
+
+	.texta_1 {
+	height: 100px;
+	width: 350px;
+}
+
+
+.title1_p {
+	text-align: right;
+	font-size: 15px;
+	line-height: 40px;
+	padding: 3px 5px;
+	width: 100px;
+}
+.input_text1 {
+	padding: 3px 8px;
+	width: 250px;
+	background-color: #eff3f2;
+	font-size: 18px;
+}
+input {
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.list_edit textarea {
+	border: solid 1px #a1a1a1;
+}
+
+.list_edit .text_interest {
+	width: 435px;
+	height: 40px;
+	font-size: 12px;
+	padding: 2px 1px;
+}
+
+.list_edit .text_intro {
+	width: 435px;
+	height: 100px;
+	font-size: 12px;
+	padding: 2px 1px;
+}
+
+.list_title {
+	width: 106px;
+	text-align: right;
+	padding-top: 5px;
+	float: left;
+}
+
+.edit_message1 {
+	padding: 25px;
+}
+
+#error_img{
+	font-size: 12px;
+	color:red;
+}
+
+#error{
+	font-size: 12px;
+	color:red;
+}

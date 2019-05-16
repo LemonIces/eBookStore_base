@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.User" table="t_user">
+		<id name="user_id" column="user_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+		private Long user_id;
+		 private String username;
+		  private String password; 
+			private String gender;
+			 private String nickname; 
+			 private String introduce; 
+			private String email;
+			 private String phone;
+			private String regist_time;
+			private String statu;
+			 -->
+		<property name="username" length="20" column="username"></property>
+		<property name="password" column="password"></property>
+		<property name="gender" length="20" column="gender"></property>
+		<property name="nickname" length="20" column="nickname"></property>
+		<property name="introduce" column="introduce"></property>
+		<property name="email" column="email"></property>
+		<property name="phone" column="phone"></property>
+		<property name="head_img"></property>
+		<property name="regist_time" column="regist_time"></property>
+		<property name="statu"></property>
+	</class>
+</hibernate-mapping>

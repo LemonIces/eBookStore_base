@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.Ad" table="t_ad">
+		<id name="ad_id" column="ad_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+		private Long ad_id;
+	
+	private String ad_title;
+	
+	private String ad_img;
+	
+	private String ad_loc;
+	
+	private String ad_time;
+	
+	private String statu;
+			 -->
+		<property name="ad_title"></property>
+		<property name="ad_img"></property>
+		<property name="ad_loc"></property>
+		<property name="ad_time"></property>
+		<property name="statu"></property>
+	</class>
+</hibernate-mapping>

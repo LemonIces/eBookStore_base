@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置struts与spring整合的常量 -->
+	<!-- # struts.objectFactory = spring struts.objectFactory.spring.autoWire 
+		= name -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+
+
+	<!-- 测试使用test -->
+	<package name="test" extends="struts-default" namespace="/">
+	
+	
+	
+	
+			<global-results>
+				<!-- 重定向到首页 -->
+			<result name="toIndex" type="redirect">/index.jsp</result>
+			
+			<result name="un_login_page">/user/error.jsp</result>
+			
+			<result name="home">/home.jsp</result>
+		</global-results>
+	
+		<action name="testAction_*" class="com.le.ebook.action.TestAction" method="{1}">
+			<result name="success">/test.jsp</result>
+			<result name="toUserLogin" type="redirectAction">/userAction_login</result>
+			<result name="userAutoLogin" type="chain">/userAction_autoLogin</result>
+			<result name="toUserAutoLogin" type="redirectAction">/userAction_autoLogin</result>
+			
+			<result name="login">/user/login.jsp</result>
+			<result name="regist">/user/regist.jsp</result>
+			
+			
+			<result name="un_login_page">/user/error.jsp</result>
+			
+			<result name="usercenter">/usercenter.jsp</result>
+			<result name="address">/address.jsp</result>
+			
+				<result name="add_address">/add_address.jsp</result>
+				<result name="change_address">/change_address.jsp</result>
+				<result name="usercenter_order_list">/usercenter_order_list.jsp</result>
+					<result name="changepwd">/user/changepwd.jsp</result>
+					
+					<result name="change_email">/user/change_email.jsp</result>
+					
+				<result name="verifyCodeServlet">/verifyCodeServlet</result>
+				
+		</action>
+	</package>
+
+	<package name="userAction" extends="struts-default" namespace="/">
+	<default-interceptor-ref name="defaultStack"></default-interceptor-ref>
+		<global-results>
+			<!-- 重定向到首页 -->
+			<result name="toIndex" type="redirect">/index.jsp</result>
+			<!-- 重定向到错误页面 -->
+			<result name="toError" type="redirect">/error.jsp</result>
+			<!-- 重定向到 home -->
+			<result name="toHome" type="redirectAction">/testAction_index</result>
+		</global-results>
+		<!-- 第一种配置Action与spring整合 -->
+		<!-- <action name="userAction_*" class="com.le.ebook.action.UserAction" 
+			method="{1}"> </action> -->
+
+		<!-- 第2种配置Action与spring整合 -->
+		<!-- class属性填写springBean中的name -->
+		<action name="userAction_*" class="userAction"
+			method="{1}">	
+	<result name="input">/usercenter.jsp</result>
+         
+         <result name="add_address">/add_address.jsp</result>
+         
+			<result name="error">/error.jsp</result>
+			<result name="toLogin" type="redirect">/user/login.jsp</result>
+			<result name="car">/mallcar.jsp</result>
+			<result name="upload_success">/usercenter.jsp</result>
+			<result name="save_success">/usercenter.jsp</result>
+			<result name="updateinfo_success">/usercenter.jsp</result>
+			
+			<result name="usercenter">/usercenter.jsp</result>
+			
+			<result name="jiesuan">/jiesuan.jsp</result>
+			<result name="address">/address.jsp</result>
+			
+			<result name="order_detail">/order_detail.jsp</result>
+			
+			<result name="un_login_page">/user/error.jsp</result>
+			
+			<!-- 重定向到addresspageAction -->
+			<result name="toAddressPage"  type="redirectAction">/testAction_addressPage</result>
+			
+				<!-- 重定向到usercenterpageAction -->
+			<result name="toUsercenterPage"  type="redirectAction">/testAction_usercenterPage</result>
+			
+				<!-- 重定向到toPay_orderPageAction -->
+			<result name="toPay_orderPage"  type="redirectAction">/testAction_pay_orderPage</result>
+			
+				<!-- 重定向到toPay_orderPageAction -->
+			<result name="pay_order">/pay_order.jsp</result>
+			
+			
+			<result name="login" >/user/login.jsp</result>
+			
+					
+			<result name="active">/user/active.jsp</result>
+			<result name="active_success">/user/active_success.jsp</result>
+			
+			
+				<result name="changepwd">/user/changepwd.jsp</result>
+				<result name="changepwd_success">/user/changepwd_success.jsp</result>
+				
+				<result name="regist">/user/regist.jsp</result>
+				<result name="regist_success">/user/regist_success.jsp</result>
+				
+				
+				<result name="reset_pwd">/user/reset_pwd.jsp</result>
+				
+				
+				<result name="reset_pwd_success">/user/reset_pwd_success.jsp</result>
+				
+				<result name="order_list_page" type="chain">
+					<param name="actionName">testAction_usercenter_order_listPage1</param>
+					<param name="statu">${statu}</param>
+					<param name="page">${page}</param>
+					<param name="page_size">${page_size}</param>
+				</result>
+				
+				
+		</action>
+		
+		<!-- bookAction -->
+		<action name="bookAction_*" class="bookAction"
+			method="{1}">
+			<result name="error">/book/error.jsp</result>
+			<result name="toHome" type="redirectAction">/testAction_index</result>
+			<result name="home">/testAction_product</result>
+			<result name="bookDetail">/bookdetail.jsp</result>
+			<result name="find_book">/find_result.jsp</result>
+			
+			<result name="un_login_page">/user/error.jsp</result>
+		</action>
+		
+		
+				<!-- bookAction -->
+		<action name="mallCarAction_*" class="mallCarAction"
+			method="{1}">
+			<result name="mallCar" >/mallcar.jsp</result>
+			<result name="toListAction" type="redirectAction" >/mallCarAction_list</result>
+			
+			<result name="un_login_page">/user/error.jsp</result>
+			
+			<result name="mallcar_add_success">/mallcar_add_success.jsp</result>
+			
+			<result name="re_mallcar" type="chain">
+			<param name="actionName">mallCarAction_list</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			</result>
+			
+			
+		</action>
+		
+		
+
+		
+	</package>
+	
+	<package name="adminAction" extends="struts-default" namespace="/admin">
+		<!-- bookAction -->
+		<action name="adminAction_*" class="adminAction"
+			method="{1}">
+			<result name="toLogin" type="redirect">/admin/login.jsp</result>
+			<result name="toMain" type="redirect">/admin/main.jsp</result>	
+			
+			<result name="login">/admin/login.jsp</result>
+			<result name="main">/admin/main.jsp</result>
+			<result name="order_list_page">/admin/pages/indent-list.jsp</result>	
+			<result name="item_list_page">/admin/pages/item-list.jsp</result>	
+			
+			<result name="reListOrder" type="chain">adminAction_listOrder</result>	
+			
+			<result name="reListOrder1" type="chain">
+			<param name="actionName">adminAction_listOrder1</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			
+			</result>	
+			
+			<result name="user_list_page">/admin/pages/user-list.jsp</result>	
+			<result name="reListUser" type="chain">adminAction_listUser</result>	
+				
+			<result name="user_update_page">/admin/pages/user-update.jsp</result>	
+			<result name="book_list_page">/admin/pages/book-list.jsp</result>	
+			<result name="re_book_list_page" type="chain">
+			<param name="actionName">adminAction_listBook2</param>
+			<param name="hots">${hots}</param>
+			<param name="news">${news}</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			</result>
+			
+			<result name="book_add_page">/admin/pages/book-add.jsp</result>	
+			<result name="book_update_page">/admin/pages/book-update.jsp</result>	
+				
+				
+			<result name="list_bookcategory_page">/admin/pages/category-list.jsp</result>
+			<result name="re_list_bookcategory_page" type="chain">
+			<param name="actionName">adminAction_listBookcategory12</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			</result>
+			<result name="re_user_list_page" type="chain">
+			<param name="actionName">adminAction_listUser2</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			</result>
+			
+			
+			<result name="ad_list_page">/admin/pages/ad-list.jsp</result>
+			<result name="re_ad_list_page" type="chain">
+			<param name="actionName">adminAction_listAd2</param>
+			<param name="statu">${statu}</param>
+			<param name="page">${page}</param>
+			<param name="page_size">${page_size}</param>
+			</result>
+			
+			<result name="user_address">/admin/pages/address-list.jsp</result>
+			<result name="ad_update_page">/admin/pages/ad-update.jsp</result>
+			<result name="category_update">/admin/pages/category-update.jsp</result>
+	
+				
+		</action>
+	
+	</package>
+</struts>

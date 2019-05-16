@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+.goods_table {
+	width: 100%;
+	text-align: center;
+}
+.mallcar_item_tr {
+	background-color: #eee;
+}
+.mallcar_item_td_check{
+	height: 100px;
+	width: 30px;
+	padding-left: 20px;
+	
+}
+
+.td1{
+	padding: 5px 15px;
+}
+
+.th1{
+	padding: 5px 15px;
+	text-align: left;
+}
+
+.mallcar_item_td_info{
+	height: 100px;
+	width: 300px;
+	
+}
+
+.mallcar_sub_logo{
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	
+}
+
+
+.mallcar_item_td_price{
+	line-height: 25px;
+}
+
+.mallcar_item_td_price a{
+	height: 26px;
+	width: 26px;
+	display: inline-block;
+	text-align: center;
+}
+
+.mall_td_info_img{
+	height: 90px;
+	width: 75px;
+	
+}
+.info_book_name{
+		margin-left: 10px;
+	
+}
+
+.count1{
+	
+	font-size:16px;
+	padding: 0px 2px;
+	height:23px;
+	text-align: center;'
+}
+
+.mallcar_item_td_price a:LINK{
+	background-color: #c0c0c0;	
+	height: 26px;
+	width: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+.mallcar_item_td_price a:VISITED{
+	background-color: #c0c0c0;	
+}
+.mallcar_item_td_price a:HOVER{
+	background-color: #c0c0c0;	
+}
+
+
+.pay_detail_div {
+	position: fixed;
+	bottom: 40px;
+	height: 50px;
+	width:998px;
+	z-index: 1000;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #393c3f;
+	background-color: #e9edf1;
+}
+
+.table1_left{
+	
+	float: left;
+	
+}
+
+.table1_right {
+	float: right;
+	margin-top: 10px;
+}
+
+.price1_input{
+	height: 30px;
+	width: 50px;
+}
+
+.money1_input{
+	height: 30px;
+	width: 50px;
+}

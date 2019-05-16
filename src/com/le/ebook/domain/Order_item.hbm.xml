@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.le.ebook.domain.Order_item" table="t_order_item">
+		<id name="item_id" column="item_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+	
+	private Long item_id;
+	
+	private Long product_id;
+	private String product_name;
+	
+	private Long count;
+	
+	private Number price; 
+	private String product_img;
+	
+	private Number money;
+	
+	//属于哪个订单
+	private Order order;
+			 -->
+		<property name="product_id"></property>
+		<property name="product_name"></property>
+		<property name="count" ></property>
+		<property name="price"></property>
+		<property name="discount"></property>
+		<property name="money" ></property>
+		<property name="product_img" ></property>
+		
+		<many-to-one name="order"  cascade="save-update" class="com.le.ebook.domain.Order" column="order_item_order_id"></many-to-one>		
+		
+	</class>
+</hibernate-mapping>

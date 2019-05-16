@@ -1,0 +1,177 @@
+@CHARSET "UTF-8";
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+ul,li{
+	list-style: none;'
+}
+
+body {
+	background-color: #fefefe;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #646464;
+}
+.box {
+	margin: 0px auto;
+	width: 1000px
+}
+
+.bor1{
+		border: 1px solid pink;
+}
+.bor2{
+		border: 1px solid red;
+}
+.bor3{
+		border: 1px solid gray;
+}
+.bor4{
+		border: 1px solid #487a6f;
+}
+
+.point1{
+	cursor: pointer;
+}
+
+.title1{
+	font-size: 20px;
+	color: #444444;
+}
+
+.textcenter{
+	text-align: center;
+}
+
+.a1 a{
+	font-size: 14px;
+	color: #646464;
+	text-decoration: none;
+}
+.a1 a:link{
+	font-size: 14px;
+	color: #646464;
+	text-decoration: none;
+}
+.a1 a:visited{
+	font-size: 14px;
+	color: #646464;
+	text-decoration: none;
+}
+.a1 a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+.a1 a{
+	font-size: 12px;
+	color: #646464;
+	text-decoration: none;
+	cursor: pointer;
+}
+.a1 a:link{
+	font-size: 12px;
+	color: #646464;
+	text-decoration: none;
+}
+.a1 a:visited{
+	font-size: 12px;
+	color: #646464;
+	text-decoration: none;
+}
+.a1 a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+.font12{
+	font-size: 12px;
+}
+.font14{
+	font-size: 14px;
+}
+.font16{
+	font-size: 16px;
+}
+.font18{
+	font-size: 18px;
+}
+
+.font20{
+	font-size: 20px;
+}
+
+.font30{
+	font-size: 30px;
+}
+
+.cls{
+	clear: both;
+}
+.cls10{
+	height:10px;
+	clear: both;
+}
+.cls20{
+	height:20px;
+	clear: both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+.detail1{
+	min-height: 200px;
+	width: 200px;
+}
+.detail2 {
+	width: 600px;
+	/* border-left: 2px solid gray; */
+	min-height: 200px;
+}
+
+.img1 {
+	width: 180px;
+	height: 200px;
+}
+.info1 span{
+	margin-right: 20px;
+}
+.padding10{
+	padding: 10px;
+}
+.padding5{
+	padding: 5px;
+}
+.red{
+	color: red;
+}
+.textdelete{
+	text-decoration: line-through;
+}
+
+.countin{
+	width: 25px;
+}
+
+
+.input_add_address {
+	width: 300px;
+	font-size: 18px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.span_sty1{
+	border: 1px solid #dddddd;
+	display: inline-block;
+	padding: 5px 10px;
+	border-bottom: none;
+	
+}

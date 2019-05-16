@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+ul,li{
+	list-style: none;'
+}
+
+body {
+	background-color: #fefefe;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #646464;
+}
+.loginbox{
+width: 1000px;
+margin: 0px auto;	
+}
+
+.top{
+	height: 100px;
+}
+
+.main{
+	height: 600px;
+}
+.foot{
+	height: 200px;
+}
+.left{
+	height: 600px;
+	width: 640px;
+	float: left;
+}
+.right{
+	height: 600px;
+	width: 340px;
+	float: left;
+}
+.userinfo{
+	margin-top:50px;
+	height: 400px;
+	padding: 20px;
+	
+}
+
+.title1{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.divin1{
+	height: 25px;
+}
+
+.divin1 a:link,.divin1 a:VISITED{
+	color: grey;
+	text-decoration: none;
+}
+
+.divin1 a:HOVER{
+	color: red;
+	text-decoration: underline;
+}
+.divin2{
+	height: 30px;
+}
+
+.divin3{
+	height: 35px;
+}
+.in1{
+	height:100%;
+	width: 100%;
+}
+.in2{
+	height:99%;
+	width: 99%;
+}
+
+
+
+.userinfo a{
+	font-size: 14px;
+	color: #646464;
+	text-decoration: none;
+}
+.userinfo a:link {
+	font-size: 12px;
+	color: #646464;
+	text-align: center;
+}
+.userinfo a:visited{
+	font-size: 14px;
+	color: #646464;
+	text-decoration: none;
+}
+.userinfo a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
